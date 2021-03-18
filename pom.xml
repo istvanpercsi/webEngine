@@ -5,7 +5,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>we-controller</module>
-        <module>we-applicaton</module>
+        <module>we-application</module>
+        <module>we-services</module>
+        <module>we-persistence-file</module>
+        <module>we-persistence-model-interface</module>
     </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
