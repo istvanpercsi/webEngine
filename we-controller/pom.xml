@@ -36,7 +36,7 @@
         <dependency>
             <groupId>de.percsi</groupId>
             <artifactId>we-services</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
     </dependencies>

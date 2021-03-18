@@ -16,12 +16,12 @@
         <dependency>
             <groupId>de.percsi</groupId>
             <artifactId>we-persistence-model-interface</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>de.percsi</groupId>
             <artifactId>we-persistence-file</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
