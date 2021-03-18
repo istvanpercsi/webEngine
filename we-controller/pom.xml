@@ -33,6 +33,12 @@
             <version>1.6.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>de.percsi</groupId>
+            <artifactId>we-services</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

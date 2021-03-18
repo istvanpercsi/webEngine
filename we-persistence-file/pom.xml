@@ -12,9 +12,12 @@
     <artifactId>we-persistence-file</artifactId>
     <name>Web Engine (Persistence - File)</name>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>de.percsi</groupId>
+            <artifactId>we-persistence-model-interface</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
