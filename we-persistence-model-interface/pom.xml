@@ -11,5 +11,17 @@
 
     <artifactId>we-persistence-model-interface</artifactId>
     <name>Web Engine (Persistence - Model - Interface)</name>
+    <dependencies>
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
