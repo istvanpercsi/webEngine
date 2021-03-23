@@ -64,13 +64,6 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- Log4J -->
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-
             <!-- GSOM -->
             <dependency>
                 <groupId>com.google.code.gson</groupId>

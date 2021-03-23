@@ -1,36 +1,31 @@
 package de.percsi.webEngine.persistence.file.tools
-
-import org.apache.log4j.LogManager
+import org.slf4j.LoggerFactory
 import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.nio.file.NoSuchFileException
-import java.nio.file.Path
-import java.nio.file.StandardOpenOption
+import java.nio.file.*
 import kotlin.streams.toList
 
-class TextFileCRUD internal constructor(private val path: Path) {
+class TextFileCRUD constructor(private val path: Path) {
 
-    private val log = LogManager.getLogger(TextFileCRUD::class.java)
+    private val log = LoggerFactory.getLogger(TextFileCRUD::class.java)
 
     fun create(data: String): String? {
         return try {
-            Files.createFile(path)
-            Files.write(path,data.toByteArray(StandardCharsets.UTF_8))
+            Files.write(path,data.toByteArray(StandardCharsets.UTF_8),StandardOpenOption.CREATE_NEW)
             log.info("File is created (${path})")
             data
         } catch (e: Exception) {
-            log.error("File could not be created (${path}): ${e.message}")
+            log.error("File could not be created (${path}): ${e.localizedMessage}")
             null
         }
     }
 
     fun read(): String? {
         return try {
-            val data = Files.lines(path).map { "$it\n" }.toList().toString()
+            val data = Files.lines(path).map { "$it\n" }.toList().joinToString(separator = "")
             log.info("File is read (${path})")
             data
         } catch (e: Exception) {
-            log.error("File could not be read ($path): ${e.message}")
+            log.error("File could not be read ($path): ${e.localizedMessage}")
             null
         }
     }
@@ -38,14 +33,14 @@ class TextFileCRUD internal constructor(private val path: Path) {
     fun update(data: String): String? {
         return try {
             return if (Files.isWritable(path)) {
-                Files.write(path, data.toByteArray(StandardCharsets.UTF_8), StandardOpenOption.WRITE)
+                Files.write(path, data.toByteArray(StandardCharsets.UTF_8), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING)
                 log.info("File is updated ($path)")
                 data
             }
             else
                 throw NoSuchFileException("File does not exists ")
         } catch (e: Exception) {
-            log.error("File could not be updated($path): ${e.message}")
+            log.error("File could not be updated($path): ${e.localizedMessage}")
             null
         }
     }
@@ -55,7 +50,7 @@ class TextFileCRUD internal constructor(private val path: Path) {
             Files.delete(path)
             true
         } catch (e: Exception) {
-            log.error("File could not be deleted ($path): ${e.message}")
+            log.warn("File could not be deleted ($path): ${e.localizedMessage}")
             false
         }
     }
