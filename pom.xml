@@ -24,7 +24,7 @@
         <module>we-application</module>
         <module>we-services</module>
         <module>we-persistence-file</module>
-        <module>we-persistence-model-interface</module>
+        <module>we-persistence</module>
     </modules>
 
     <!-- Properties -->
@@ -51,12 +51,17 @@
             </dependency>
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-reflect</artifactId>
+                <version>${kotlin.version}</version>
+            </dependency>
+
+            <!-- K o t l i n - T e s t -->
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-test</artifactId>
                 <version>${kotlin.version}</version>
                 <scope>test</scope>
             </dependency>
-
-            <!-- K o t l i n - T e s t -->
             <dependency>
                 <groupId>io.kotest</groupId>
                 <artifactId>kotest-runner-junit5-jvm</artifactId>
